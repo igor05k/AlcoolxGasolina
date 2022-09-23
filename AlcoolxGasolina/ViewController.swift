@@ -36,11 +36,13 @@ class ViewController: UIViewController {
         if difference > 0.7 {
             let priceToPercent = difference * 100
             let priceFormatted = String(format: "%.2f", priceToPercent)
-            print("compre gasolina. a diferença é de \(priceFormatted)%")
+            descriptionText.text = "Você deveria comprar gasolina pois a diferença é de \(priceFormatted)%"
+//            print()
         } else {
             let priceToPercent = difference * 100
             let priceFormatted = String(format: "%.2f", priceToPercent)
-            print("compre álcool. a diferença é de \(priceFormatted)%")
+            descriptionText.text = "Você deveria comprar álcool pois a diferença é de \(priceFormatted)%"
+//            print("compre álcool. a diferença é de \(priceFormatted)%")
         }
     }
     
@@ -49,13 +51,21 @@ class ViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 28, weight: .bold)
-        label.text = "Resultados"
+        label.text = "Resultado:"
+        return label
+    }()
+    
+    let descriptionText: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 20, weight: .light)
+        label.numberOfLines = 0
         return label
     }()
     
     
     // MARK: Set elements constraints
-    private func showLabel() {
+    private func showResultLabel() {
         resultsView.addSubview(resultLabelText)
         
         NSLayoutConstraint.activate([
@@ -65,10 +75,21 @@ class ViewController: UIViewController {
         ])
     }
     
+    private func showDescriptionLabel() {
+        resultsView.addSubview(descriptionText)
+        
+        NSLayoutConstraint.activate([
+            descriptionText.topAnchor.constraint(equalTo: resultLabelText.bottomAnchor, constant: 15),
+            descriptionText.leftAnchor.constraint(equalTo: resultLabelText.leftAnchor),
+            descriptionText.rightAnchor.constraint(equalTo: resultLabelText.rightAnchor),
+        ])
+    }
+    
     // MARK: Button actions
     @IBAction func tappedCalculate(_ sender: UIButton) {
         getValues()
-        showLabel()
+        showResultLabel()
+        showDescriptionLabel()
     }
 }
 

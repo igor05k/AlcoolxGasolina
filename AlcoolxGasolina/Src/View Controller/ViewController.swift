@@ -103,13 +103,19 @@ class ViewController: UIViewController {
         }
     }
     
+    private func removeElementsFromSuperView() {
+        resultLabelText.removeFromSuperview()
+        descriptionText.removeFromSuperview()
+        resetButton.removeFromSuperview()
+    }
+    
     @objc func tappedReset(_ sender: UIButton) {
         let alert = UIAlertController(title: "Atenção", message: "Tem certeza que deseja resetar os valores?", preferredStyle: .alert)
         
         let actionConfirm = UIAlertAction(title: "OK", style: .destructive) { alert in
-            self.resultsView.removeFromSuperview()
-            self.alcoholTextField.text = String()
-            self.gasTextField.text = String()
+            self.removeElementsFromSuperView()
+            self.alcoholTextField.text = ""
+            self.gasTextField.text = ""
         }
         
         let actionCancel = UIAlertAction(title: "Cancelar", style: .default, handler: nil)

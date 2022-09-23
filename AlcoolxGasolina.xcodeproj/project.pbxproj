@@ -14,7 +14,6 @@
 		82AA223828DE0C2F00C4FAAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82AA223728DE0C2F00C4FAAF /* Assets.xcassets */; };
 		82AA223B28DE0C2F00C4FAAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82AA223928DE0C2F00C4FAAF /* LaunchScreen.storyboard */; };
 		82AA224828DE2F1000C4FAAF /* ViewControllerConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AA224728DE2F1000C4FAAF /* ViewControllerConstraints.swift */; };
-		82AA224A28DE2F7000C4FAAF /* TextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AA224928DE2F7000C4FAAF /* TextField+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +26,6 @@
 		82AA223A28DE0C2F00C4FAAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		82AA223C28DE0C2F00C4FAAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82AA224728DE2F1000C4FAAF /* ViewControllerConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerConstraints.swift; sourceTree = "<group>"; };
-		82AA224928DE2F7000C4FAAF /* TextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +79,6 @@
 		82AA224328DE2EB900C4FAAF /* Src */ = {
 			isa = PBXGroup;
 			children = (
-				82AA224628DE2EED00C4FAAF /* Extensions */,
 				82AA224528DE2EC700C4FAAF /* View Controller */,
 				82AA224428DE2EBC00C4FAAF /* View */,
 			);
@@ -103,14 +100,6 @@
 				82AA224728DE2F1000C4FAAF /* ViewControllerConstraints.swift */,
 			);
 			path = "View Controller";
-			sourceTree = "<group>";
-		};
-		82AA224628DE2EED00C4FAAF /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				82AA224928DE2F7000C4FAAF /* TextField+.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,7 +175,6 @@
 			files = (
 				82AA223328DE0C2C00C4FAAF /* ViewController.swift in Sources */,
 				82AA224828DE2F1000C4FAAF /* ViewControllerConstraints.swift in Sources */,
-				82AA224A28DE2F7000C4FAAF /* TextField+.swift in Sources */,
 				82AA222F28DE0C2C00C4FAAF /* AppDelegate.swift in Sources */,
 				82AA223128DE0C2C00C4FAAF /* SceneDelegate.swift in Sources */,
 			);

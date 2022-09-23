@@ -84,48 +84,25 @@ class ViewController: UIViewController {
         return button
     }()
     
-    // MARK: Set elements constraints
-    private func showResultLabel() {
-        resultsView.addSubview(resultLabelText)
-        
-        NSLayoutConstraint.activate([
-            resultLabelText.topAnchor.constraint(equalTo: resultsView.topAnchor),
-            resultLabelText.leftAnchor.constraint(equalTo: resultsView.leftAnchor, constant: 10),
-            resultLabelText.rightAnchor.constraint(equalTo: resultsView.rightAnchor, constant: 10),
-        ])
-    }
-    
-    private func showDescriptionLabel() {
-        resultsView.addSubview(descriptionText)
-        
-        NSLayoutConstraint.activate([
-            descriptionText.topAnchor.constraint(equalTo: resultLabelText.bottomAnchor, constant: 15),
-            descriptionText.leftAnchor.constraint(equalTo: resultLabelText.leftAnchor),
-            descriptionText.rightAnchor.constraint(equalTo: resultLabelText.rightAnchor),
-        ])
-    }
-    
-    private func showResetButton() {
-        resultsView.addSubview(resetButton)
-        resetButton.addTarget(self, action: #selector(tappedReset(_:)), for: .touchUpInside)
-        
-        NSLayoutConstraint.activate([
-            resetButton.topAnchor.constraint(equalTo: descriptionText.bottomAnchor, constant: 25),
-            resetButton.leftAnchor.constraint(equalTo: descriptionText.leftAnchor),
-            resetButton.rightAnchor.constraint(equalTo: descriptionText.rightAnchor, constant: -10),
-            resetButton.heightAnchor.constraint(equalToConstant: 30)
-        ])
-    }
-    
     // MARK: Button actions
     @IBAction func tappedCalculate(_ sender: UIButton) {
-        getValues()
-        showResultLabel()
-        showDescriptionLabel()
-        showResetButton()
+        guard let alcoholText = alcoholTextField.text else { return }
+        guard let gasText = gasTextField.text else { return }
+        
+        if !alcoholText.isEmpty && !gasText.isEmpty {
+            getValues()
+            showResultLabel()
+            showDescriptionLabel()
+            showResetButton()
+        } else {
+            let alert = UIAlertController(title: "Atenção", message: "Você tem que preencher todos os campos.", preferredStyle: .alert)
+            let actionConfirm = UIAlertAction(title: "OK", style: .default)
+            alert.addAction(actionConfirm)
+            present(alert, animated: true)
+        }
     }
     
-    @objc private func tappedReset(_ sender: UIButton) {
+    @objc func tappedReset(_ sender: UIButton) {
         let alert = UIAlertController(title: "Atenção", message: "Tem certeza que deseja resetar os valores?", preferredStyle: .alert)
         
         let actionConfirm = UIAlertAction(title: "OK", style: .destructive) { alert in

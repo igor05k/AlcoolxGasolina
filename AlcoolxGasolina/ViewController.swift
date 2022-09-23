@@ -127,7 +127,9 @@ class ViewController: UIViewController {
     }
     
     @objc private func tappedReset(_ sender: UIButton) {
-        print("reset tapped")
+        resultsView.removeFromSuperview()
+        alcoholTextField.text = String()
+        gasTextField.text = String()
     }
 }
 

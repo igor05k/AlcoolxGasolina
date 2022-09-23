@@ -36,13 +36,24 @@ class ViewController: UIViewController {
         if difference > 0.7 {
             let priceToPercent = difference * 100
             let priceFormatted = String(format: "%.2f", priceToPercent)
-            descriptionText.text = "Você deveria comprar gasolina pois a diferença é de \(priceFormatted)%"
-//            print()
+            
+            // make gas price and percent text bold
+            var attributedDescription = NSMutableAttributedString(string: "Você deveria comprar gasolina pois a diferença é de \(priceFormatted)%")
+            attributedDescription.addAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)], range: NSRange(location: 21, length: 8))
+            attributedDescription.addAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)], range: NSRange(location: 52, length: 6))
+            
+            descriptionText.attributedText = attributedDescription
+
         } else {
             let priceToPercent = difference * 100
             let priceFormatted = String(format: "%.2f", priceToPercent)
-            descriptionText.text = "Você deveria comprar álcool pois a diferença é de \(priceFormatted)%"
-//            print("compre álcool. a diferença é de \(priceFormatted)%")
+            
+            // make alcohol price and percent text bold
+            var attributedDescription = NSMutableAttributedString(string: "Você deveria comprar álcool pois a diferença é de \(priceFormatted)%")
+            attributedDescription.addAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)], range: NSRange(location: 21, length: 6))
+            attributedDescription.addAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)], range: NSRange(location: 50, length: 6))
+            
+            descriptionText.attributedText = attributedDescription
         }
     }
     

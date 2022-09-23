@@ -38,7 +38,7 @@ class ViewController: UIViewController {
             let priceFormatted = String(format: "%.2f", priceToPercent)
             
             // make gas price and percent text bold
-            var attributedDescription = NSMutableAttributedString(string: "Você deveria comprar gasolina pois a diferença é de \(priceFormatted)%")
+            let attributedDescription = NSMutableAttributedString(string: "Você deveria comprar gasolina pois a diferença é de \(priceFormatted)%")
             attributedDescription.addAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)], range: NSRange(location: 21, length: 8))
             attributedDescription.addAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)], range: NSRange(location: 52, length: 6))
             
@@ -49,7 +49,7 @@ class ViewController: UIViewController {
             let priceFormatted = String(format: "%.2f", priceToPercent)
             
             // make alcohol price and percent text bold
-            var attributedDescription = NSMutableAttributedString(string: "Você deveria comprar álcool pois a diferença é de \(priceFormatted)%")
+            let attributedDescription = NSMutableAttributedString(string: "Você deveria comprar álcool pois a diferença é de \(priceFormatted)%")
             attributedDescription.addAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)], range: NSRange(location: 21, length: 6))
             attributedDescription.addAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)], range: NSRange(location: 50, length: 6))
             
@@ -74,6 +74,16 @@ class ViewController: UIViewController {
         return label
     }()
     
+    let resetButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Resetar Valores", for: .normal)
+        button.setTitleColor(UIColor.black, for: .normal)
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.black.cgColor
+        return button
+    }()
+    
     
     // MARK: Set elements constraints
     private func showResultLabel() {
@@ -96,11 +106,28 @@ class ViewController: UIViewController {
         ])
     }
     
+    private func showResetButton() {
+        resultsView.addSubview(resetButton)
+        resetButton.addTarget(self, action: #selector(tappedReset(_:)), for: .touchUpInside)
+        
+        NSLayoutConstraint.activate([
+            resetButton.topAnchor.constraint(equalTo: descriptionText.bottomAnchor, constant: 25),
+            resetButton.leftAnchor.constraint(equalTo: descriptionText.leftAnchor),
+            resetButton.rightAnchor.constraint(equalTo: descriptionText.rightAnchor, constant: -10),
+            resetButton.heightAnchor.constraint(equalToConstant: 30)
+        ])
+    }
+    
     // MARK: Button actions
     @IBAction func tappedCalculate(_ sender: UIButton) {
         getValues()
         showResultLabel()
         showDescriptionLabel()
+        showResetButton()
+    }
+    
+    @objc private func tappedReset(_ sender: UIButton) {
+        print("reset tapped")
     }
 }
 

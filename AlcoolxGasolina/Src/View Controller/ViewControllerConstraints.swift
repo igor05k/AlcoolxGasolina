@@ -40,4 +40,10 @@ extension ViewController {
             resetButton.heightAnchor.constraint(equalToConstant: 30)
         ])
     }
+    
+    func configCalculateButton() {
+        calculateButton.layer.borderWidth = 1
+        calculateButton.layer.borderColor = UIColor.white.cgColor
+        calculateButton.layer.cornerRadius = 10
+    }
 }

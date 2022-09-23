@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        configCalculateButton()
     }
     
     // divide alcohol price by gas price and multiply by 7.
@@ -81,6 +81,7 @@ class ViewController: UIViewController {
         button.setTitleColor(UIColor.black, for: .normal)
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.black.cgColor
+        button.layer.cornerRadius = 10
         return button
     }()
     

@@ -47,7 +47,10 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nVl-iT-Hrr">
                                 <rect key="frame" x="20" y="377" width="350" height="35"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Calcular"/>
+                                <connections>
+                                    <action selector="tappedCalculate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LzY-6K-8Zc"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IgI-WQ-mhr">
                                 <rect key="frame" x="10" y="452" width="370" height="348"/>
@@ -80,6 +83,12 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nVl-iT-Hrr" secondAttribute="trailing" constant="20" id="wmw-ms-Ptx"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="alcoholTextField" destination="atH-55-7eY" id="tfY-fI-ZN2"/>
+                        <outlet property="calculateButton" destination="nVl-iT-Hrr" id="sBb-nl-V9d"/>
+                        <outlet property="gasTextField" destination="Zg0-Ij-gny" id="6hl-2P-n6X"/>
+                        <outlet property="resultsView" destination="IgI-WQ-mhr" id="msV-Wi-k2S"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

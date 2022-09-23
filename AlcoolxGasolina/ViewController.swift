@@ -43,7 +43,7 @@ class ViewController: UIViewController {
             attributedDescription.addAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)], range: NSRange(location: 52, length: 6))
             
             descriptionText.attributedText = attributedDescription
-
+            
         } else {
             let priceToPercent = difference * 100
             let priceFormatted = String(format: "%.2f", priceToPercent)
@@ -83,7 +83,6 @@ class ViewController: UIViewController {
         button.layer.borderColor = UIColor.black.cgColor
         return button
     }()
-    
     
     // MARK: Set elements constraints
     private func showResultLabel() {
@@ -127,9 +126,18 @@ class ViewController: UIViewController {
     }
     
     @objc private func tappedReset(_ sender: UIButton) {
-        resultsView.removeFromSuperview()
-        alcoholTextField.text = String()
-        gasTextField.text = String()
+        let alert = UIAlertController(title: "Atenção", message: "Tem certeza que deseja resetar os valores?", preferredStyle: .alert)
+        
+        let actionConfirm = UIAlertAction(title: "OK", style: .destructive) { alert in
+            self.resultsView.removeFromSuperview()
+            self.alcoholTextField.text = String()
+            self.gasTextField.text = String()
+        }
+        
+        let actionCancel = UIAlertAction(title: "Cancelar", style: .default, handler: nil)
+        alert.addAction(actionConfirm)
+        alert.addAction(actionCancel)
+        present(alert, animated: true)
     }
 }
 

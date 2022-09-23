@@ -15,14 +15,16 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var resultsView: UIView!
     
+    // difference between alcohol v gas
+    private var difference: Double = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
     
-    // dividir o preço do litro do álcool pelo da gasolina.
+    // divide alcohol price by gas price and multiply by 7.
     func getValues() {
-        var difference: Double = 0
         // unwrap optional text values AND convert to float
         if let alcohol = alcoholTextField.text, let gas = gasTextField.text {
             guard let alcoholPrice = Double(alcohol) else { return }
@@ -42,8 +44,31 @@ class ViewController: UIViewController {
         }
     }
     
+    // MARK: Create elements
+    let resultLabelText: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 28, weight: .bold)
+        label.text = "Resultados"
+        return label
+    }()
+    
+    
+    // MARK: Set elements constraints
+    private func showLabel() {
+        resultsView.addSubview(resultLabelText)
+        
+        NSLayoutConstraint.activate([
+            resultLabelText.topAnchor.constraint(equalTo: resultsView.topAnchor),
+            resultLabelText.leftAnchor.constraint(equalTo: resultsView.leftAnchor, constant: 10),
+            resultLabelText.rightAnchor.constraint(equalTo: resultsView.rightAnchor, constant: 10),
+        ])
+    }
+    
+    // MARK: Button actions
     @IBAction func tappedCalculate(_ sender: UIButton) {
         getValues()
+        showLabel()
     }
 }
 

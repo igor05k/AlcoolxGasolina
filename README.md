@@ -5,7 +5,6 @@
 
 <p align="justify">A tela inicial conta com dois textfields principais e um botão -- este para realizar o cálculo. O espaço vazio na parte de baixo do app está reservado para os resultados.</p> 
 
-
 <img src="https://github.com/igor05k/AlcoolxGasolina/raw/master/Screenshots/main.png" width="200" height="400" />
 
 <p align="justify">O teclado por padrão vem como númerico com um ponto decimal para que assim, o texto seja formatado da maneira correta.</p> 

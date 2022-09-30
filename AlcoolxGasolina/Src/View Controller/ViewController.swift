@@ -6,11 +6,11 @@
 //
 
 import UIKit
-
+// TODO: REMOVE COPY AND PASTE
 class ViewController: UIViewController {
     
-    @IBOutlet weak var alcoholTextField: UITextField!
-    @IBOutlet weak var gasTextField: UITextField!
+    @IBOutlet weak var alcoholTextField: CustomTextFields!
+    @IBOutlet weak var gasTextField: CustomTextFields!
     @IBOutlet weak var calculateButton: UIButton!
     
     @IBOutlet weak var resultsView: UIView!
@@ -21,12 +21,20 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configCalculateButton()
+        configKeyboard()
+    }
+    
+    // config keyboard
+    func configKeyboard() {
+        gasTextField.keyboardType = .decimalPad
+        alcoholTextField.keyboardType = .decimalPad
     }
     
     // divide alcohol price by gas price and multiply by 7.
     func getValues() {
         // unwrap optional text values AND convert to float
-        if let alcohol = alcoholTextField.text, let gas = gasTextField.text {
+        if let alcohol = alcoholTextField.text?.replacingOccurrences(of: ",", with: "."),
+           let gas = gasTextField.text?.replacingOccurrences(of: ",", with: ".") {
             guard let alcoholPrice = Double(alcohol) else { return }
             guard let gasPrice = Double(gas) else { return }
             
@@ -77,7 +85,7 @@ class ViewController: UIViewController {
     let resetButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Resetar Valores", for: .normal)
+        button.setTitle("Resetar Valores".uppercased(), for: .normal)
         button.setTitleColor(UIColor.black, for: .normal)
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.black.cgColor
@@ -101,6 +109,7 @@ class ViewController: UIViewController {
             alert.addAction(actionConfirm)
             present(alert, animated: true)
         }
+        self.view.endEditing(true)
     }
     
     private func removeElementsFromSuperView() {
@@ -124,4 +133,3 @@ class ViewController: UIViewController {
         present(alert, animated: true)
     }
 }
-

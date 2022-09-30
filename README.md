@@ -9,5 +9,6 @@
 
 <p align="justify">O teclado por padrão vem como númerico com um ponto decimal para que assim, o texto seja formatado da maneira correta.</p> 
 
-![](https://github.com/igor05k/AlcoolxGasolina/raw/master/Screenshots/filledTf.png)
+<img src="https://github.com/igor05k/AlcoolxGasolina/raw/master/Screenshots/filledTf.png" width="200" height="400" />
+
 

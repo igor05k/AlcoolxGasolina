@@ -24,7 +24,7 @@
 <p align="justify">Essa nova view também conta com o botão de resetar. Como o próprio nome sugere, o botão zera todos os valores e remove os resultados da tela. Um alerta é apresentado para saber se você realmente quer fazer a ação.</p>
 
 <p align="center">
-  ![](https://github.com/igor05k/AlcoolxGasolina/blob/master/Screenshots/alert.png)
+  <img src="https://github.com/igor05k/AlcoolxGasolina/blob/master/Screenshots/alert.png" width="100" height="300" />
 </p>
 
 

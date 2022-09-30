@@ -1,7 +1,7 @@
 # AlcoolxGasolina
 
 ## Qual a finalidade?
-<h3>Comparar os preços entre álcool e gasolina, sendo assim, tendo uma conclusão melhor sobre qual seria mais vantajoso usar.<h3/>
+<h3>Comparar os preços entre álcool e gasolina, sendo assim, tendo uma conclusão melhor sobre qual seria mais vantajoso usar.</h3>
 
 <p align="justify">A tela inicial conta com dois textfields principais e um botão -- este para realizar o cálculo. O espaço vazio na parte de baixo do app está reservado para os resultados.</p> 
 

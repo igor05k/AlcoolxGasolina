@@ -6,7 +6,7 @@
 //
 
 import UIKit
-// TODO: REMOVE COPY AND PASTE
+
 class ViewController: UIViewController {
     
     @IBOutlet weak var alcoholTextField: CustomTextFields!
@@ -22,12 +22,18 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         configCalculateButton()
         configKeyboard()
+        setTextfieldDelegates()
     }
     
     // config keyboard
     func configKeyboard() {
         gasTextField.keyboardType = .decimalPad
         alcoholTextField.keyboardType = .decimalPad
+    }
+    
+    func setTextfieldDelegates() {
+        alcoholTextField.delegate = self
+        gasTextField.delegate = self
     }
     
     // divide alcohol price by gas price and multiply by 7.

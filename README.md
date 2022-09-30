@@ -11,4 +11,7 @@
 
 <img src="https://github.com/igor05k/AlcoolxGasolina/raw/master/Screenshots/filledTf.png" width="200" height="400" />
 
+Para obter os resultados, bastar preencher os dois textfields e apertar em seguida no botão calcular para que assim, uma nova view com os resultados apareca na tela contando em detalhes, qual combustível você deverá utilizar.
+![](https://github.com/igor05k/AlcoolxGasolina/blob/master/Screenshots/results.png)
+
 
